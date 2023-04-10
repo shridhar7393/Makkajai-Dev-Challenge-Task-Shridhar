@@ -7,3 +7,8 @@ Assumptions:
 2. quantity and price:
       In input, price is assumpted as price for one item. In code price is calculated by multiplying it with its quantity.
 
+if representing monetary amounts, using double is almost certainly a bad idea. We can use following instead,
+return an int (i.e. the rounded value multiplied by 100);
+return a String;
+return a BigDecimal;
+Here I am returning a itemPriceWithTax as String.
