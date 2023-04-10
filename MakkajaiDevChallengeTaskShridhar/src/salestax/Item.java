@@ -1,6 +1,4 @@
-package salestax.util;
-
-import java.math.BigDecimal;
+package salestax;
 
 public class Item {
 
@@ -10,8 +8,6 @@ public class Item {
 	private final ItemType itemType;
 	private final boolean imported;
 	public String itemPriceWithTax;
-
-
 
 	public Item(String name, double price, int quntity, ItemType itemType) {
 		this(name, price, quntity, itemType, false);
@@ -52,7 +48,7 @@ public class Item {
 		this.itemPriceWithTax = itemPriceWithTax;
 	}
 	public String toString() {
-		return quntity + " " + (imported ? "imported " : "") + name + " " + getItemPriceWithTax();
+		return name + " at" + " " + getItemPriceWithTax();
 	}
 }
 

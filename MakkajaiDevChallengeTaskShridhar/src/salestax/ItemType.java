@@ -1,4 +1,4 @@
-package salestax.util;
+package salestax;
 
 public enum ItemType {
 	  BOOK,
