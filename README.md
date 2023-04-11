@@ -1,5 +1,6 @@
 # Makkajai-Dev-Challenge-Task-Shridhar
 
+Pass filename as parameter for main method like "test1.txt" 
 Assumptions:
 1. Inputs are given as object of Item class like:
        new Item(String name, double price, int quantity, itemType, boolean imported);
