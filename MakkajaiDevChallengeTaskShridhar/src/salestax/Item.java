@@ -48,7 +48,7 @@ public class Item {
 		this.itemPriceWithTax = itemPriceWithTax;
 	}
 	public String toString() {
-		return name + " at" + " " + getItemPriceWithTax();
+		return name + ":" + " " + getItemPriceWithTax();
 	}
 }
 
