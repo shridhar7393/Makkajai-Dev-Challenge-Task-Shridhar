@@ -1,38 +1,42 @@
 package salestax;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Receipt{
-	private List<Item> items;
+	private ArrayList<Item> itemsList;
 
 	private double totalSalesTax;
 	private double totalCost;
 
-	private HashMap<String, Object> resultMap = new HashMap<String, Object>();
-
-	public Receipt(ArrayList<Item> itemsList) {
-		items = itemsList;
-		totalSalesTax = 0;
-		totalCost = 0;
+	public ArrayList<Item> getItemsList() {
+		return itemsList;
 	}
 
-	public HashMap<String, Object> generateReceipt() {
+	public double getTotalSalesTax() {
+		return totalSalesTax;
+	}
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public Receipt() {
+		itemsList = new ArrayList<Item>();
+		totalSalesTax = 0.00;
+		totalCost = 0.00;
+	}
+
+	public void generateReceipt(ArrayList<Item> items) {
 		SalesTaxCalculator stc = new SalesTaxCalculator();
-		ArrayList<Item> resItemList = new ArrayList<>();
 		for (Item item : items) {
 			double itemPriceWithTax = stc.calculatePriceWithTax(item);
 			item.setItemPriceWithTax(stc.roundUpToTwoDecimals(itemPriceWithTax).toString());
 			totalCost += itemPriceWithTax;
-			totalSalesTax += itemPriceWithTax - item.getPrice();
-			resItemList.add(item);
+			totalSalesTax += stc.roundUpToTwoDecimals(itemPriceWithTax - item.getPrice()).doubleValue();
+			itemsList.add(item);
 		}
-		resultMap.put("itemList", resItemList);
-		resultMap.put("totalTax", stc.roundUpToTwoDecimals(totalSalesTax).toString());
-		resultMap.put("totalAmount", totalCost);
-		return resultMap;
-	}
 
+
+	}
 
 }

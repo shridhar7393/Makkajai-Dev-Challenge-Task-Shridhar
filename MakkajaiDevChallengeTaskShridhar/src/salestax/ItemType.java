@@ -1,5 +1,6 @@
 package salestax;
 
+
 public enum ItemType {
 	  BOOK,
 	  FOOD,
