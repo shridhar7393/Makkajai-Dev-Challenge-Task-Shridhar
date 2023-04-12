@@ -5,25 +5,34 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Receipt{
-	public HashMap<String, Object> generateReceipt(ArrayList<Item> items) {
-		double subtotal = 0.0;
-        double totalTax = 0.0;
-        List<Item> itemList = new ArrayList<Item>();
-        HashMap<String, Object> resultMap = new HashMap<String, Object>();
-        SalesTaxCalculator stc = new SalesTaxCalculator();
-        RoundUpTo round = new RoundUpTo();
+	private List<Item> items;
 
-        for (Item item : items) {
-            double itemPriceWithTax = stc.calculatePriceWithTax(item);
-            subtotal += item.getPrice();
-            totalTax += itemPriceWithTax - item.getPrice();
-            item.setItemPriceWithTax(round.twoDecimals(itemPriceWithTax).toString());
-            itemList.add(item);
-        }
-        resultMap.put("itemList", itemList);
-        resultMap.put("totalTax", round.twoDecimals(totalTax).toString());
-        resultMap.put("totalAmount", subtotal + totalTax);
+	private double totalSalesTax;
+	private double totalCost;
+
+	private HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+	public Receipt(ArrayList<Item> itemsList) {
+		items = itemsList;
+		totalSalesTax = 0;
+		totalCost = 0;
+	}
+
+	public HashMap<String, Object> generateReceipt() {
+		SalesTaxCalculator stc = new SalesTaxCalculator();
+		ArrayList<Item> resItemList = new ArrayList<>();
+		for (Item item : items) {
+			double itemPriceWithTax = stc.calculatePriceWithTax(item);
+			item.setItemPriceWithTax(stc.roundUpToTwoDecimals(itemPriceWithTax).toString());
+			totalCost += itemPriceWithTax;
+			totalSalesTax += itemPriceWithTax - item.getPrice();
+			resItemList.add(item);
+		}
+		resultMap.put("itemList", resItemList);
+		resultMap.put("totalTax", stc.roundUpToTwoDecimals(totalSalesTax).toString());
+		resultMap.put("totalAmount", totalCost);
 		return resultMap;
 	}
+
 
 }
