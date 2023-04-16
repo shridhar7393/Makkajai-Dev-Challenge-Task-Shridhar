@@ -105,7 +105,7 @@ public class SalesTaxUnitTest {
 	}
 
 	@Test
-	public void testPositiveOutputOfRoundUpToTwoDecimals() {
+	public void shouldRoundUpValueToTwoDecimals() {
 		SalesTaxCalculator stc1 = new SalesTaxCalculator();
 		assertEquals(BigDecimal.valueOf(0.65), stc1.roundUpToTwoDecimals(0.65470000001));
 	}
