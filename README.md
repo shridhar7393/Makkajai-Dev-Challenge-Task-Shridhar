@@ -1,5 +1,10 @@
 # Makkajai-Dev-Challenge-Task-Shridhar
 
+
+Open terminal at "executables" folder.  
+Run the following command "java -cp Makkajai-salestax-java-jar.jar Main 'test1.txt'".  
+or Run the project in your IDE with file name as argument.
+
 ##### Assumptions:  
 1. quantity and price: In input, price is assumed as price for one item. In code, price is calculated by multiplying it with its quantity.  
 
@@ -23,6 +28,3 @@ Class design:
 2. Receipt object generates a receipt by taking list of item objects.
 3. generateReceipt function utilizes tax calculation logics from SalesTaxCalculator class.
 4. Receipt class calculates and stores total tax amount and total price to be paid.
-
-
-Run the SalesTaxUnitTest.java file in your IDE.
