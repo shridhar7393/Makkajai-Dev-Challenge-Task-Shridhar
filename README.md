@@ -1,5 +1,10 @@
 # Makkajai-Dev-Challenge-Task-Shridhar
 
+
+Open terminal at "executables" folder.  
+Run the following command "java -cp Makkajai-salestax-java-jar.jar Main 'test1.txt'".  
+or Run the project in your IDE with file name as argument.
+
 ##### Assumptions:  
 1. quantity and price: In input, price is assumed as price for one item. In code, price is calculated by multiplying it with its quantity.  
 
