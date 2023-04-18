@@ -25,7 +25,7 @@ import util.FileUtil;
  *
  *
  *         File read Exception testing is skipped here
- * 
+ *
  */
 public class SalesTaxUnitTest {
 
@@ -105,7 +105,7 @@ public class SalesTaxUnitTest {
 	}
 
 	@Test
-	public void shouldRoundUpValueToTwoDecimals() {
+	public void testPositiveOutputOfRoundUpToTwoDecimals() {
 		SalesTaxCalculator stc1 = new SalesTaxCalculator();
 		assertEquals(BigDecimal.valueOf(0.65), stc1.roundUpToTwoDecimals(0.65470000001));
 	}

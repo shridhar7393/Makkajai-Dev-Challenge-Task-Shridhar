@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import pojo.Item;
@@ -35,9 +37,9 @@ public class FileUtil {
 			}
 			bufferedReader.close();
 		} catch (FileNotFoundException e) {
-			throw new FileNotFoundException("'at' keyword missing in an input line");
+			throw new FileNotFoundException("File not found: '"+fileName+"'");
 		} catch (IOException e) {
-			throw new IOException("'at' keyword missing in an input line");
+			throw new IOException("File not found: '"+fileName+"'");
 		}
 		return res;
 
